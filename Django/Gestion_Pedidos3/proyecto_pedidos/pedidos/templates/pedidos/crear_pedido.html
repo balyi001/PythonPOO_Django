@@ -4,12 +4,21 @@
     <title>Crear Pedido</title>
 </head>
 <body>
-    <h1>Crear Nuevo Pedido</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Guardar Pedido</button>
-    </form>
-    <p><a href="{% url 'listar_pedidos' %}">Volver a la lista de pedidos</a></p>
+    {% extends "pedidos/base.html" %}
+
+{% block contenido %}
+
+<h2 class="mb-3">Crear Pedido</h2>
+
+<form method="POST" class="card p-4 shadow">
+{% csrf_token %}
+
+{{ form.as_p }}
+
+<button class="btn btn-success mt-3">Guardar</button>
+<a href="/pedidos/" class="btn btn-secondary mt-3">Volver</a>
+</form>
+
+{% endblock %}
 </body>
 </html>

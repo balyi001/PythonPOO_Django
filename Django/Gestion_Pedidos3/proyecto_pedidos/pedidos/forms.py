@@ -6,6 +6,9 @@ class PedidoForm(forms.ModelForm):
         model = Pedido
         fields = ['cliente', 'fecha_pedido', 'producto', 'cantidad', 'estado']
         widgets = {
-            'fecha_pedido': forms.DateInput(attrs={'type': 'date'}),
+            'fecha_pedido': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
+            'cliente': forms.TextInput(attrs={'class': 'form-control'}),
+            'producto': forms.TextInput(attrs={'class': 'form-control'}),
+            'cantidad': forms.NumberInput(attrs={'class': 'form-control'}),
+            'estado': forms.Select(attrs={'class': 'form-select'}),
         }
-

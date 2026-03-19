@@ -4,13 +4,23 @@
     <title>Detalle del Pedido</title>
 </head>
 <body>
-    <h1>Detalle del Pedido</h1>
-    <p><strong>ID:</strong> {{ pedido.id }}</p>
-    <p><strong>Cliente:</strong> {{ pedido.cliente }}</p>
-    <p><strong>Fecha Pedido:</strong> {{ pedido.fecha_pedido }}</p>
-    <p><strong>Producto:</strong> {{ pedido.producto }}</p>
-    <p><strong>Cantidad:</strong> {{ pedido.cantidad }}</p>
-    <p><strong>Estado:</strong> {{ pedido.get_estado_display }}</p>
-    <p><a href="{% url 'listar_pedidos' %}">Volver a la lista de pedidos</a></p>
+    {% extends "pedidos/base.html" %}
+
+{% block contenido %}
+<h2 class="mb-3">Detalle del Pedido</h2>
+
+<div class="card p-4 shadow">
+
+<p><strong>ID:</strong> {{ pedido.id }}</p>
+<p><strong>Cliente:</strong> {{ pedido.cliente }}</p>
+<p><strong>Fecha:</strong> {{ pedido.fecha_pedido }}</p>
+<p><strong>Producto:</strong> {{ pedido.producto }}</p>
+<p><strong>Cantidad:</strong> {{ pedido.cantidad }}</p>
+<p><strong>Estado:</strong> {{ pedido.estado }}</p>
+
+<a href="/pedidos/" class="btn btn-secondary mt-3">Volver</a>
+</div>
+
+{% endblock %}
 </body>
 </html>
